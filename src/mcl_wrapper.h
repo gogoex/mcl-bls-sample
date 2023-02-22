@@ -6,9 +6,7 @@
 
 struct MclWrapper
 {
-    mclBnG1 m_p;
-
-    static mclBnG1 m_g;  // generator point
+    static mclBnG1 m_p;
 };
 
 #endif // MCL_WRAPPER_H
