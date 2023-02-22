@@ -13,7 +13,7 @@ LIBBLS = libbls384_256.a
 BLS_DIR = ./src/bls
 LIBS = src/bls/lib/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
 OBJS = main.o mcl_wrapper.o
-PROGRAM  = test
+PROGRAM = test
 
 all: $(PROGRAM)
 
