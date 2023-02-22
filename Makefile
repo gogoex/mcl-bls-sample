@@ -14,7 +14,6 @@ BLS_DIR = ./src/bls
 LIBS = src/bls/lib/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
 OBJS = main.o mcl_wrapper.o
 PROGRAM  = test
-VPATH = src
 
 all: $(PROGRAM)
 
@@ -24,7 +23,7 @@ $(PROGRAM): $(OBJS) $(LIBBLS) $(LIBMCL)
 $(LIBBLS): $(LIBMCL)
 	make -j$(NUM_CORES) -C src/bls BLS_ETH=1 lib/$(LIBBLS)
 
-$(LIBMCL): $(BLS_DIR)
+$(LIBMCL): | $(BLS_DIR)
 	make -j$(NUM_CORES) -C src/bls/mcl lib/$(LIBMCL)
 
 $(BLS_DIR):

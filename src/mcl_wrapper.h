@@ -6,8 +6,6 @@
 
 struct MclWrapper
 {
-    MclWrapper();
-
     mclBnG1 m_p;
 
     static mclBnG1 m_g;  // generator point
