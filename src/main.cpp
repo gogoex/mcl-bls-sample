@@ -5,9 +5,6 @@
 #include "./bls/include/bls/bls384_256.h"
 #include "./mcl_g1point.h"
 
-# define BOOST_TEST_MAIN
-#include "../depends/aarch64-apple-darwin22.2.0/include/boost/test/included/unit_test.hpp"
-
 struct SampleFixture {
     static MclG1Point p;
 
@@ -21,11 +18,8 @@ struct SampleFixture {
 
 MclG1Point SampleFixture::p;
 
-BOOST_FIXTURE_TEST_SUITE(sample_tests, SampleFixture)
-
-BOOST_AUTO_TEST_CASE(test1)
-{
-    BOOST_CHECK(1 == 1);
+int main() {
+    SampleFixture sf;
+    printf("hello\n");
+    return 0;
 }
-
-BOOST_AUTO_TEST_SUITE_END()
