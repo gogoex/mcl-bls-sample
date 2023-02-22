@@ -1,0 +1,5 @@
+Makefile
+test
+test.*
+autom4*
+src/bls/
