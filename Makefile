@@ -11,7 +11,8 @@ LDFLAGS= -lpthread
 LIBMCL = libmcl.a
 LIBBLS = libbls384_256.a
 BLS_DIR = ./src/bls
-LIBS = src/bls/lib/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
+#LIBS = src/bls/lib/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
+LIBS = herumi/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
 OBJS = main.o mcl_wrapper.o
 PROGRAM = test
 
