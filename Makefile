@@ -11,12 +11,16 @@ LDFLAGS= -lpthread
 LIBMCL = libmcl.a
 LIBBLS = libbls384_256.a
 BLS_DIR = ./src/bls
-#LIBS = src/bls/lib/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
-LIBS = herumi/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
-OBJS = main.o mcl_wrapper.o
+LIBS = src/bls/lib/$(LIBBLS) src/bls/mcl/lib/$(LIBMCL)
+OBJS = main.o
 PROGRAM = test
+VPATH=src
 
 all: $(PROGRAM)
+
+.SUFFIXES: .cpp .o
+.cpp.o:
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(PROGRAM): $(OBJS) $(LIBBLS) $(LIBMCL)
 	$(CXX) $(OBJS) $(LIBS) $(LDFLAGS) -o $(PROGRAM)
@@ -30,16 +34,13 @@ $(LIBMCL): | $(BLS_DIR)
 $(BLS_DIR):
 	git clone --recursive https://github.com/herumi/bls $(BLS_DIR)
 
-.SUFFIXES: .cpp .o
-.cpp.o:
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
 run:
 	./$(PROGRAM)
 
 clean:
 	make -C src/bls/mcl clean
 	make -C src/bls clean
+	$(RM) *.o
 	$(RM) $(PROGRAM)
 
 clean-bls:
