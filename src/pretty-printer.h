@@ -5,24 +5,22 @@
 #include <bls/bls384_256.h>
 #include <cstdio>
 
-void print_uint64_t(const uint64_t& x, size_t size) {
-    for(size_t i=0; i<size; ++i) {
-        for(size_t j=0; j<8; ++j) {
-            printf("%02X", ((uint8_t*) &x)[i]);
-        }
+void print_uint64_t(const uint64_t& x) {
+    for(size_t i=0; i<8; ++i) {
+        printf("%02X", ((uint8_t*) &x)[i]);
     }
     printf(" ");
 }
 
 void print_mclBnFp(const mclBnFp& fp) {
     for(size_t i=0; i<6; ++i) {
-        print_uint64_t(fp.d[i], 6);
+        print_uint64_t(fp.d[i]);
     }
 }
 
 void print_mclBnFr(const mclBnFr& fr) {
     for(size_t i=0; i<4; ++i) {
-        print_uint64_t(fr.d[i], 4);
+        print_uint64_t(fr.d[i]);
     }
 }
 
