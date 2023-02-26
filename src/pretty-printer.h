@@ -7,7 +7,9 @@
 
 void print_uint64_t(const uint64_t& x, size_t size) {
     for(size_t i=0; i<size; ++i) {
-        printf("%02X", ((uint8_t*) &x)[i]);
+        for(size_t j=0; j<8; ++j) {
+            printf("%02X", ((uint8_t*) &x)[i]);
+        }
     }
     printf(" ");
 }
