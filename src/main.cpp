@@ -15,7 +15,7 @@ void do_test(const char* name, const std::function <void ()>& body) {
 }
 
 int main() {
-    printf(">>>>>> before blsInit, not calling clear function)\n");
+    printf(">>>>>> before blsInit, not calling clear function\n");
     do_test("mclBnFr", []() {
         mclBnFr a;
         print_mclBnFr(a);
