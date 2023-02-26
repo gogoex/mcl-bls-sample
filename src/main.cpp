@@ -14,19 +14,20 @@ void do_test(const char* name, const std::function <void ()>& body) {
     }
 }
 
+static mclBnFr a1;
+static mclBnG1 a2;
+static blsSignature a3;
+
 int main() {
     printf(">>>>>> before blsInit, not calling clear function\n");
     do_test("mclBnFr", []() {
-        mclBnFr a;
-        print_mclBnFr(a);
+        print_mclBnFr(a1);
     });
     do_test("mclBnG1", []() {
-        mclBnG1 a;
-        print_mclBnG1(a);
+        print_mclBnG1(a2);
     });
     do_test("blsSignature (mclBnG2)", []() {
-        blsSignature a;
-        print_mclBnG2(a.v);
+        print_mclBnG2(a3.v);
     });
 
     if (blsInit(MCL_BLS12_381, MCLBN_COMPILED_TIME_VAR) != 0) {
