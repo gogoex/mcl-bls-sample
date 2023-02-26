@@ -1,6 +1,6 @@
 CXX = g++
 NUM_CORES = 32
-CXXFLAGS = -g -O0 -Wall \
+CXXFLAGS = -g -O0 -Wall -std=c++17 \
 -I/usr/local/include \
 -Isrc/bls/include \
 -Isrc/bls/mcl/include \
